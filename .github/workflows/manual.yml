@@ -42,5 +42,5 @@ jobs:
     - name: push to origin master
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.PERSON_ACCESS_TOKEN }}
         branch: ${{ github.ref }}
