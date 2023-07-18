@@ -32,12 +32,14 @@ jobs:
         python scraper.py
 
     # Runs a set of commands using the runners shell
-    - name: push to origin master
+    - name: Commit files
       run: |
-        echo start push
-        git config --global user.name "pascall"
-        git config --global user.email "zhangjie@pascall.cn"
-        
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         git add -A
         git commit -m $(date '+%Y-%m-%d')
-        git push
+    - name: push to origin master
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
